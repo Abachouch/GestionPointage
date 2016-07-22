@@ -5,21 +5,16 @@
 package Model.beans;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
 
 /**
  *
- * @author lahcen
+ * @author youssouf
  */
-@Embeddable
+
 public class DossierActPK implements Serializable {
-    @Basic(optional = false)
-    @Column(name = "Id_Dossier")
+   
     private int idDossier;
-    @Basic(optional = false)
-    @Column(name = "Id_Act_Medicale")
+   
     private int idActMedicale;
 
     public DossierActPK() {

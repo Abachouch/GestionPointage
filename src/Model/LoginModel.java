@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 public class LoginModel {
 
     /**
-     * cet fonction permet de tester si un utilisateur est inscrir
+     * cet fonction permet de tester si un utilisateur est inscrit
      *
      * @param login
      * @param password
@@ -125,10 +125,8 @@ public class LoginModel {
     }
     
      public Logine LogineAllById(int id) {
-        
         Logine l = null;
         int rowAffected = 0;
-        
         String sqlSelect = "select * from logine where id_Login = "+id;
         Statement st;
         try {
@@ -139,7 +137,6 @@ public class LoginModel {
                 l.setIdLogin(rs.getInt("logine"));
                 l.setPasword(rs.getString("logine"));
                 l.setUsername(rs.getString("username"));
-                
             }
         } catch (SQLException ex) {
             Logger.getLogger(LoginModel.class.getName()).log(Level.SEVERE, null, ex);

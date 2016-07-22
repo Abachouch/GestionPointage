@@ -5,39 +5,19 @@
 package Model.beans;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author lahcen
+ * @author youssouf
  */
-@Entity
-@Table(name = "logine")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Logine.findAll", query = "SELECT l FROM Logine l"),
-    @NamedQuery(name = "Logine.findByIdLogin", query = "SELECT l FROM Logine l WHERE l.idLogin = :idLogin"),
-    @NamedQuery(name = "Logine.findByUsername", query = "SELECT l FROM Logine l WHERE l.username = :username"),
-    @NamedQuery(name = "Logine.findByPasword", query = "SELECT l FROM Logine l WHERE l.pasword = :pasword")})
+
 public class Logine implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id_Login")
+   
     private Integer idLogin;
-    @Column(name = "Username")
+   
     private String username;
-    @Column(name = "Pasword")
+    
     private String pasword;
 
     public Logine() {

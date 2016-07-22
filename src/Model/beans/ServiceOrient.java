@@ -6,49 +6,21 @@ package Model.beans;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author lahcen
+ * @author youssouf
  */
-@Entity
-@Table(name = "service_orient")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ServiceOrient.findAll", query = "SELECT s FROM ServiceOrient s"),
-    @NamedQuery(name = "ServiceOrient.findByIdServiceOrient", query = "SELECT s FROM ServiceOrient s WHERE s.idServiceOrient = :idServiceOrient"),
-    @NamedQuery(name = "ServiceOrient.findByNomServiceOrient", query = "SELECT s FROM ServiceOrient s WHERE s.nomServiceOrient = :nomServiceOrient")})
 public class ServiceOrient implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "Id_Service_Orient")
     private Integer idServiceOrient;
-    @Basic(optional = false)
-    @Column(name = "Nom_Service_Orient")
     private String nomServiceOrient;
-    @OneToMany(mappedBy = "idServiceOrient")
     private List<Consultation> consultationList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idServiceOrient")
     private List<ActMedicale> actMedicaleList;
-
+    
     public ServiceOrient() {
     }
-
+    
     public ServiceOrient(Integer idServiceOrient) {
         this.idServiceOrient = idServiceOrient;
     }
@@ -74,7 +46,6 @@ public class ServiceOrient implements Serializable {
         this.nomServiceOrient = nomServiceOrient;
     }
 
-    @XmlTransient
     public List<Consultation> getConsultationList() {
         return consultationList;
     }
@@ -83,7 +54,6 @@ public class ServiceOrient implements Serializable {
         this.consultationList = consultationList;
     }
 
-    @XmlTransient
     public List<ActMedicale> getActMedicaleList() {
         return actMedicaleList;
     }

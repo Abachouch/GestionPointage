@@ -4,7 +4,6 @@ package Driver;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-
 public class MysqlCnx {
  
     //youssouf : jais changer la visibilite de Connection vers private
@@ -24,7 +23,6 @@ public class MysqlCnx {
             System.out.println("Connection Error");
             ex.printStackTrace();
         } finally {
-
             if (connection != null) {
                 System.out.println("Connection Success");
 

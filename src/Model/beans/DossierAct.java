@@ -6,42 +6,20 @@ package Model.beans;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author lahcen
+ * @author youssouf
  */
-@Entity
-@Table(name = "dossier_act")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "DossierAct.findAll", query = "SELECT d FROM DossierAct d"),
-    @NamedQuery(name = "DossierAct.findByIdDossier", query = "SELECT d FROM DossierAct d WHERE d.dossierActPK.idDossier = :idDossier"),
-    @NamedQuery(name = "DossierAct.findByIdActMedicale", query = "SELECT d FROM DossierAct d WHERE d.dossierActPK.idActMedicale = :idActMedicale"),
-    @NamedQuery(name = "DossierAct.findByDateDossierAct", query = "SELECT d FROM DossierAct d WHERE d.dateDossierAct = :dateDossierAct")})
 public class DossierAct implements Serializable {
     private static final long serialVersionUID = 1L;
-    @EmbeddedId
+   
     protected DossierActPK dossierActPK;
-    @Column(name = "Date_Dossier_Act")
-    @Temporal(TemporalType.DATE)
+   
     private Date dateDossierAct;
-    @JoinColumn(name = "Id_Dossier", referencedColumnName = "Id_Dossier", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+   
     private Dossier dossier;
-    @JoinColumn(name = "Id_Act_Medicale", referencedColumnName = "Id_Act_Medicale", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+   
     private ActMedicale actMedicale;
 
     public DossierAct() {

@@ -6,49 +6,24 @@ package Model.beans;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+
 
 /**
  *
- * @author lahcen
+ * @author youssouf
  */
-@Entity
-@Table(name = "act_medicale")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "ActMedicale.findAll", query = "SELECT a FROM ActMedicale a"),
-    @NamedQuery(name = "ActMedicale.findByIdActMedicale", query = "SELECT a FROM ActMedicale a WHERE a.idActMedicale = :idActMedicale"),
-    @NamedQuery(name = "ActMedicale.findByNomActMedicale", query = "SELECT a FROM ActMedicale a WHERE a.nomActMedicale = :nomActMedicale")})
+
 public class ActMedicale implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "Id_Act_Medicale")
+   
     private Integer idActMedicale;
-    @Basic(optional = false)
-    @Column(name = "Nom_Act_Medicale")
+    
     private String nomActMedicale;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "actMedicale")
+   
     private List<DossierAct> dossierActList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idActMedicale")
+    
     private List<Dossier> dossierList;
-    @JoinColumn(name = "Id_Service_Orient", referencedColumnName = "Id_Service_Orient")
-    @ManyToOne(optional = false)
+    
     private ServiceOrient idServiceOrient;
 
     public ActMedicale() {
@@ -79,7 +54,6 @@ public class ActMedicale implements Serializable {
         this.nomActMedicale = nomActMedicale;
     }
 
-    @XmlTransient
     public List<DossierAct> getDossierActList() {
         return dossierActList;
     }
@@ -88,7 +62,6 @@ public class ActMedicale implements Serializable {
         this.dossierActList = dossierActList;
     }
 
-    @XmlTransient
     public List<Dossier> getDossierList() {
         return dossierList;
     }
