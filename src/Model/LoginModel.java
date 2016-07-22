@@ -138,6 +138,7 @@ public class LoginModel {
                 l.setPasword(rs.getString("logine"));
                 l.setUsername(rs.getString("username"));
             }
+            
         } catch (SQLException ex) {
             Logger.getLogger(LoginModel.class.getName()).log(Level.SEVERE, null, ex);
         }
